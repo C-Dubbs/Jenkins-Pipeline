@@ -16,5 +16,10 @@ pipeline {
                 echo "Deployment started and completed!"
                 }    
             }
+        stage("Completed"){
+            steps {
+                echo "Completed..."
+            }
         }
     }
+}
