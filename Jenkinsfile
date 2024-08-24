@@ -12,10 +12,13 @@ pipeline {
             }
             post
             {
-                emailext subject: "Unit and Integration Test Status, 6.1C",
+                success{
+                    emailext subject: "Unit and Integration Test Status, 6.1C",
                              body: "Unit and Integration Tests were successful",
                              to: "winnewissercedric@gmail.com",
                              attachLog: true
+                }
+                
             }
         }
         stage('Code Analysis'){
