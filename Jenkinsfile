@@ -3,22 +3,62 @@ pipeline {
     stages {
         stage('Build'){
             steps{
-                echo "Build started and completed!"
+                echo "Using Apache Maven to automate build process"
             }
         }
-        stage('Test'){
+        stage('Unit and Integration Tests'){
             steps{
-                echo "Test started and completed!"
+                echo "Using Selenium to automate testing process"
+            }
+            post
+            {
+                success{
+                    mail to: "winnewissercedric@gmail.com",
+                    attachLog: true,
+                    subject: "Unit and Integration Test Status, 6.1C",
+                    body: "Unit and Integration Tests were successful"
+                }
+                failure {
+
+                }
             }
         }
-        stage('Deployment'){
+        stage('Code Analysis'){
             steps{
-                echo "Deployment started and completed!"
-                }    
+                echo "Using Coverity to automate code analysis"
             }
-        stage("Completed"){
-            steps {
-                echo "Completed..."
+        }
+        stage('Security Scan'){
+            steps{
+                echo "Using Nessus to automate security scanning"
+            }
+            post
+            {
+                success{
+                    mail to: "winnewissercedric@gmail.com",
+                    attachLog: true,
+                    subject: "Unit and Integration Test Status, 6.1C",
+                    body: "Unit and Integration Tests were successful"
+                }
+                failure{
+
+                }
+            }
+            
+        }
+        stage('Deploy to Staging'){
+            steps{
+                echo "Deploying to AWS EC2 staging server"
+            }
+        }
+        stage('Integration Tests on Staging'){
+            steps{
+                echo "Running integration tests on staging environment in AWS EC2"
+            }
+        }
+        stage('Deploy to Production'){
+            steps{
+                echo "Deploying application to production server, AWS EC2 instance"
             }
         }
     }
