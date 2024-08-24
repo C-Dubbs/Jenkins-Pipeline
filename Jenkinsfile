@@ -12,12 +12,10 @@ pipeline {
             }
             post
             {
-                success{
-                    mail to: "winnewissercedric@gmail.com",
-                    attachLog: true,
-                    subject: "Unit and Integration Test Status, 6.1C",
-                    body: "Unit and Integration Tests were successful"
-                }
+                emailext subject: "Unit and Integration Test Status, 6.1C",
+                             body: "Unit and Integration Tests were successful",
+                             to: "winnewissercedric@gmail.com",
+                             attachLog: true
             }
         }
         stage('Code Analysis'){
@@ -32,10 +30,10 @@ pipeline {
             post
             {
                 success{
-                    mail to: "winnewissercedric@gmail.com",
-                    attachLog: true,
-                    subject: "Unit and Integration Test Status, 6.1C",
-                    body: "Unit and Integration Tests were successful"
+                    emailext subject: "Unit and Integration Test Status, 6.1C",
+                             body: "Unit and Integration Tests were successful",
+                             to: "winnewissercedric@gmail.com",
+                             attachLog: true
                 }
             }
             
