@@ -18,9 +18,6 @@ pipeline {
                     subject: "Unit and Integration Test Status, 6.1C",
                     body: "Unit and Integration Tests were successful"
                 }
-                failure {
-
-                }
             }
         }
         stage('Code Analysis'){
@@ -39,9 +36,6 @@ pipeline {
                     attachLog: true,
                     subject: "Unit and Integration Test Status, 6.1C",
                     body: "Unit and Integration Tests were successful"
-                }
-                failure{
-
                 }
             }
             
