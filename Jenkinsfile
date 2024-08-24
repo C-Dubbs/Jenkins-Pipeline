@@ -13,11 +13,8 @@ pipeline {
         }
         stage('Deployment'){
             steps{
-                retry(3){
-                    sh 'command fails'
-                }
                 echo "Deployment started and completed!"
+                }    
             }
         }
     }
-}
