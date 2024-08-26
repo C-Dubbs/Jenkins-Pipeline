@@ -17,7 +17,7 @@ pipeline {
                              body: "Unit and Integration Tests were successful",
                              to: "winnewissercedric@gmail.com",
                              attachLog: true
-                }            
+                }                
             }
         }
         stage('Code Analysis'){
@@ -32,12 +32,13 @@ pipeline {
             post
             {
                 success{
-                    emailext subject: "Unit and Integration Test Status, 6.1C",
-                             body: "Unit and Integration Tests were successful",
+                    emailext subject: "Security Scan Status, 6.1C",
+                             body: "Security Scan tests were successful",
                              to: "winnewissercedric@gmail.com",
                              attachLog: true
                 }
-            }            
+            }
+            
         }
         stage('Deploy to Staging'){
             steps{
