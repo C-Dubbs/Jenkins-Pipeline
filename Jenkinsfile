@@ -15,7 +15,8 @@ pipeline {
                 success{
                     emailext subject: "Unit and Integration Test Status, 6.1C",
                              body: "Unit and Integration Tests were successful",
-                             to: "winnewissercedric@gmail.com"
+                             to: "winnewissercedric@gmail.com",
+                             attachLog: true
                 }            
             }
         }
@@ -33,7 +34,8 @@ pipeline {
                 success{
                     emailext subject: "Unit and Integration Test Status, 6.1C",
                              body: "Unit and Integration Tests were successful",
-                             to: "winnewissercedric@gmail.com"
+                             to: "winnewissercedric@gmail.com",
+                             attachLog: true
                 }
             }            
         }
